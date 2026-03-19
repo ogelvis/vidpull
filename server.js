@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname)));
 
 function escapeShell(url) {
   return `'${url.replace(/'/g, "'\\''")}'`;
@@ -76,19 +76,17 @@ app.post('/api/download', (req, res) => {
     try { info = JSON.parse(stdout.trim().split('\n')[0]); }
     catch { return res.status(500).json({ error: 'Could not parse video info.' }); }
 
-    // Best URL: prefer combined format, then best single
     const allFormats = (info.formats || []).filter(f => f.url && f.url.startsWith('http'));
     const bestUrl = info.url || allFormats.slice(-1)[0]?.url;
 
     if (!bestUrl) return res.status(422).json({ error: 'No download URL found.' });
 
-    // Deduplicated format list
     const seen = new Set();
     const formats = allFormats
       .map(f => ({
-        url:     f.url,
-        ext:     f.ext || 'mp4',
-        quality: f.format_note || (f.height ? `${f.height}p` : f.format_id) || 'video',
+        url:      f.url,
+        ext:      f.ext || 'mp4',
+        quality:  f.format_note || (f.height ? `${f.height}p` : f.format_id) || 'video',
         filesize: f.filesize || f.filesize_approx || null,
       }))
       .filter(f => { if (seen.has(f.quality)) return false; seen.add(f.quality); return true; })
@@ -121,7 +119,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // ── Fallback → serve frontend ─────────────────────────────────
-app.get('*', (_, res) => res.sendFile(path.join(__dirname, 'public', 'index.html')));
+app.get('*', (_, res) => res.sendFile(path.join(__dirname, 'index.html')));
 
 app.listen(PORT, () => {
   console.log(`✅  VidPull on http://localhost:${PORT}`);
