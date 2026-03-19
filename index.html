@@ -705,6 +705,7 @@
 </head>
 <body>
 
+  
 <!-- ── Top bar ── -->
 <header class="topbar">
   <div class="brand">
@@ -723,6 +724,8 @@
     Get App
   </button>
 </header>
+
+  
 
 <!-- ── Hero ── -->
 <section class="hero">
@@ -877,48 +880,69 @@
       </svg>
     </div>
 
-    <h2 class="modal-title">GET THE APP</h2>
-    <p class="modal-sub">Install VidPull on your Android phone for instant access — no app store needed.</p>
+  <h2 class="modal-title">GET THE APP</h2>
+<p class="modal-sub">Install VidPull on your Android phone for instant access — no app store needed.</p>
 
-    <div class="modal-steps">
-      <div class="modal-step">
-        <div class="step-num">1</div>
-        <div class="step-text">
-          <strong>Open in Chrome</strong><br>
-          <span>Visit this website in Google Chrome on your Android phone</span>
-        </div>
-      </div>
-      <div class="modal-step">
-        <div class="step-num">2</div>
-        <div class="step-text">
-          <strong>Tap the menu</strong><br>
-          <span>Tap the ⋮ three-dot menu in the top-right corner of Chrome</span>
-        </div>
-      </div>
-      <div class="modal-step">
-        <div class="step-num">3</div>
-        <div class="step-text">
-          <strong>Add to Home Screen</strong><br>
-          <span>Tap "Add to Home screen" → then tap <strong>Add</strong></span>
-        </div>
-      </div>
-      <div class="modal-step">
-        <div class="step-num">4</div>
-        <div class="step-text">
-          <strong>Done! 🎉</strong><br>
-          <span>VidPull icon appears on your home screen like a native app</span>
-        </div>
-      </div>
+<a href="https://median.co/share/qdomwwe#apk" target="_blank" class="btn-apk-download">
+  ⬇️ Download APK Directly
+</a>
+
+<div class="modal-steps">
+  <div class="modal-step">
+    <div class="step-num">1</div>
+    <div class="step-text">
+      <strong>Open in Chrome</strong><br>
+      <span>Visit this website in Google Chrome on your Android phone</span>
     </div>
-
-    <div class="modal-note">
-      💡 When Chrome shows an <strong style="color:var(--white)">"Add to Home Screen"</strong> banner automatically — just tap Install. No APK file needed.
+  </div>
+  <div class="modal-step">
+    <div class="step-num">2</div>
+    <div class="step-text">
+      <strong>Tap the menu</strong><br>
+      <span>Tap the ⋮ three-dot menu in the top-right corner of Chrome</span>
     </div>
-
-    <button class="btn-modal-close" onclick="closeInstallModal()">Close</button>
+  </div>
+  <div class="modal-step">
+    <div class="step-num">3</div>
+    <div class="step-text">
+      <strong>Add to Home Screen</strong><br>
+      <span>Tap "Add to Home screen" → then tap <strong>Add</strong></span>
+    </div>
+  </div>
+  <div class="modal-step">
+    <div class="step-num">4</div>
+    <div class="step-text">
+      <strong>Done! 🎉</strong><br>
+      <span>VidPull icon appears on your home screen like a native app</span>
+    </div>
   </div>
 </div>
+<div class="modal-note">
+  💡 When Chrome shows an <strong style="color:var(--white)">"Add to Home Screen"</strong> banner automatically — just tap Install. No APK file needed.
+</div>
+<button class="btn-modal-close" onclick="closeInstallModal()">Close</button>
 
+
+
+<style> .btn-apk-download {
+  display: block;
+  text-align: center;
+  background: #27ae60;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  margin: 12px 0 20px;
+  transition: background 0.2s;
+}
+
+.btn-apk-download:hover {
+  background: #219150;
+}</style>
+
+    
 <script>
 // ── PWA Install ──────────────────────────────────────────────
 let deferredPrompt = null;
